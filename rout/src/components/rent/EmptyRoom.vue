@@ -92,7 +92,7 @@
         </el-form-item>
       </el-form>
       <div class="demo-drawer__footer">
-        <el-button type="success" @click="$refs.drawer.closeDrawer();submit()" :loading="loading">{{ loading ? '提交中 ...' : '确 定' }}</el-button>
+        <el-button type="success" @click="submit" :loading="loading">{{ loading ? '提交中 ...' : '确 定' }}</el-button>
         <el-button @click="cancelForm">取 消</el-button>
       </div>
     </div>
@@ -138,11 +138,16 @@ export default {
       this.form.requman=this.$store.state.person_info.name
       this.form.cardid=this.$store.state.person_info.id
       this.form.tel=this.$store.state.person_info.tel
+    },
+    text(){
+      console.log('qqqqqqqqqqqqqqqqq');
+      this.form.reason=this.text
+      console.log(this.form.reason);
     }
   },
   data() {
     return {
-      text: ref(''),
+      text: '',
       row:{},
       list:[],
       table: false,
@@ -169,9 +174,11 @@ export default {
       return row.address;
     },
     submit(){
+      this.cancelForm()
       post('rent',this.form).then(res => {
         console.log(res);
       })
+
     },
     handleEdit(index, row) {
       if (this.$store.state.person_info.identity=='社团')
@@ -200,7 +207,6 @@ export default {
       this.dialog = false;
       clearTimeout(this.timer);
     }
-
   }
 }
 </script>
