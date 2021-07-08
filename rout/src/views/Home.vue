@@ -2,6 +2,7 @@
   <el-row :gutter="20">
     <el-col :span="12"><div class="grid-content bg-purple"><BoLangChart autoresize></BoLangChart></div></el-col>
     <el-col :span="10"><div class="grid-content bg-purple"><charone autoresize></charone></div></el-col>
+    <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
 
 
   </el-row>
