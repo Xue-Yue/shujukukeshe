@@ -27,13 +27,19 @@
         prop="classroom"
         label="教室"
         sortable
-        width="300">
+        width="200">
     </el-table-column>
     <el-table-column
         prop="tname"
         label="教师"
         sortable
+        width="200"
        >
+    </el-table-column>
+    <el-table-column
+        prop="pname"
+        label="班级"
+        sortable>
     </el-table-column>
   </el-table>
 </template>
@@ -55,8 +61,12 @@ export default {
         id:this.$store.state.person_info.id,
         weekno:this.weekno
       }
-      console.log(params);
-      post('course/student',params)
+      let url=''
+      if (this.$store.state.person_info.identity=='学生')
+        url='course/student'
+      else if (this.$store.state.person_info.identity=='教师')
+        url='course/teacher'
+      post(url,params)
           .then(res => {
             this.list=res.data.data
           })
