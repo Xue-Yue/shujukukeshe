@@ -12,6 +12,12 @@
         width="200">
     </el-table-column>
     <el-table-column
+        prop="cno"
+        label="课程编号"
+        sortable
+        width="200">
+    </el-table-column>
+    <el-table-column
         prop="cname"
         label="课程"
         sortable
@@ -24,6 +30,12 @@
         width="300">
     </el-table-column>
     <el-table-column
+        prop="classno"
+        label="班级编号"
+        width="200"
+        sortable>
+    </el-table-column>
+    <el-table-column
         prop="pname"
         label="班级"
         width="300"
@@ -34,9 +46,12 @@
         label="操作"
         sortable
         >
-      <el-button type="success" plain
-                 @click="handleEdit(scope.$index, scope.row)"
-      >调整</el-button>
+      <template #default="scope">
+        <el-button type="success" plain
+                   @click="handleEdit(scope.row)"
+        >调整</el-button>
+      </template>
+
     </el-table-column>
   </el-table>
 </template>
@@ -83,11 +98,15 @@ export default {
     formatter(row, column) {
       return row.address;
     },
-    handleEdit(index,row){
+    handleEdit(row){
       console.log(row)
-
-      
-      this.$emit('secondfunc','')
+      this.$store.state.adjust_record.roomno=row.classroom
+      this.$store.state.adjust_record.sectionno=row.sectionno
+      this.$store.state.adjust_record.pname=row.pname
+      this.$store.state.adjust_record.cname=row.cname
+      this.$store.state.adjust_record.cno=row.cno
+      this.$store.state.adjust_record.classno=row.classno
+      this.$emit('secondfunc',row)
     }
   }
 }

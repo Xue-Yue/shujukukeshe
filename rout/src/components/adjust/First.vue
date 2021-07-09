@@ -128,7 +128,9 @@ export default {
         weekno:'',
         weekday:''
       }
-
+      this.$store.state.adjust_record.weekday=this.value2
+      this.$store.state.adjust_record.tno=this.$store.state.person_info.id
+      this.$store.state.adjust_record.weekno=this.value
       data1.weekno=this.value
       data1.weekday=this.value2
       this.$emit('firstfunc',data1)

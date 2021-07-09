@@ -6,7 +6,7 @@
   </el-steps>
   <div style="margin-top: 50px">
     <First v-if="active==1" @firstfunc="firstfun"></First>
-    <Second v-else-if="active==2" :list="seconddata"></Second>
+    <Second v-else-if="active==2" :list="seconddata" @secondfunc="secondfun"></Second>
     <Thrid v-else-if="active==3"></Thrid>
   </div>
 </template>
@@ -33,6 +33,9 @@ export default {
       this.active++
       this.seconddata=data
 
+    },
+    secondfun(row){
+      this.active++
     }
   }
 }
