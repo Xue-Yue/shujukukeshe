@@ -46,7 +46,7 @@ export default {
     return {
       radio: 4,
       form: {
-        username: '24080222',
+        username: '92922015',
         password: '123456',
         type:''
       },

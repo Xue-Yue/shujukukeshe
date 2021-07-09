@@ -5,12 +5,9 @@
     <el-step title="步骤 3" icon="el-icon-picture"></el-step>
   </el-steps>
   <div style="margin-top: 50px">
-    <First v-if="active==1"></First>
-    <Second v-else-if="active==2"></Second>
+    <First v-if="active==1" @firstfunc="firstfun"></First>
+    <Second v-else-if="active==2" :list="seconddata"></Second>
     <Thrid v-else-if="active==3"></Thrid>
-  </div>
-  <div>
-    <el-button type="success" @click="active++">下一步</el-button>
   </div>
 </template>
 
@@ -22,13 +19,21 @@ export default {
   name: "Temperament",
   data(){
     return{
-      active:1
+      active:1,
+      seconddata:{}
     }
   },
   components: {
     First,
     Second,
     Thrid
+  },
+  methods:{
+    firstfun(data){
+      this.active++
+      this.seconddata=data
+
+    }
   }
 }
 </script>
