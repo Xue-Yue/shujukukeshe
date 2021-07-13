@@ -9,7 +9,8 @@
           :label="item.label"
           :value="item.value">
       </el-option>
-    </el-select></el-aside>
+    </el-select>
+    </el-aside>
     <el-main>
       <EmptyRoom :weekno="week"></EmptyRoom>
     </el-main>
