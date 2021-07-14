@@ -76,6 +76,7 @@ export default {
         console.log(res)
         console.log('qqweqweqw');
       })
+      this.$router.push('/home')
     }
   }
 }
