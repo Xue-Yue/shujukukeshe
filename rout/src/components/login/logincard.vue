@@ -25,7 +25,6 @@
             <el-radio-button label="学生" v-model="form.type"></el-radio-button>
             <el-radio-button label="社团" v-model="form.type"></el-radio-button>
             <el-radio-button label="教师" v-model="form.type"></el-radio-button>
-            <el-radio-button label="管理员" v-model="form.type"></el-radio-button>
           </el-radio-group>
         </div>
         <el-form-item>
